@@ -60,9 +60,9 @@
 		{
 			Console.Clear();
 
-			Console.WriteLine("Du är i entren, vad vill du göra?");
+			Console.WriteLine("Du är i entren, vad vill du göra?\n");
 			Console.WriteLine("1 : Gå in på Museét.");
-			Console.WriteLine("2 : Gå hem");
+			Console.WriteLine("2 : Gå hem\n");
 
 			answer = Console.ReadKey(true).Key;
 
@@ -89,31 +89,32 @@
 		while (true)
 		{
 			Console.Clear();
-			Console.WriteLine("1 : Titta på cigaretterna?"); // titta på verk
-			Console.WriteLine("2 : Titta på saltstatyerna?"); // titta på verk
+			Console.WriteLine("Du är i nedredelen av korridoren, vad vill du göra?\n");
+			Console.WriteLine("1 : Titta på cigarrer?"); 
+			Console.WriteLine("2 : Titta på saltstatyerna?"); 
 			Console.WriteLine("-----------------------------");
-			Console.WriteLine("3 : Gå uppför korridoren?"); // move along
-			Console.WriteLine("4 : Gå till entré?"); // move along
+			Console.WriteLine("3 : Gå uppför korridoren?"); 
+			Console.WriteLine("4 : Gå till entré?\n"); 
 			answer = Console.ReadKey(true).Key;
 
 
 			if (answer == ConsoleKey.D1 || answer == ConsoleKey.NumPad1)
 			{
-				// beskrivning av cigaretterna?
+				ShowObject("Här kan du se cigarrer, visst blir man röksugen?");
 			}
 			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad2)
 			{
-				// beskrivning av saltstatyerna?
+				ShowObject("Saltstatyer, slicka helst inte på dom. Don't be salty.");
 			}
 			else if (answer == ConsoleKey.D3 || answer == ConsoleKey.NumPad3)
 			{
-				// kalla på metoden CorridorLowerRoomLoop()
 				currentRoom = Room.Corridor_Upper;
 				return;
 			}
 			else if (answer == ConsoleKey.D4 || answer == ConsoleKey.NumPad4)
 			{
-				// kalla på metoden EnterEntryRoomLoop()
+				currentRoom = Room.Entry;
+				return;
 			}
 		}
 	}
@@ -123,30 +124,40 @@
 		while (true)
 		{
 			Console.Clear();
-			Console.WriteLine("Här finns inget att titta på. Ska du fundera på livet eller fortsätta rundvandringen?");
-			Console.WriteLine("1 : Du passerade precis en toalett, nödig?"); // titta på verk
+			Console.WriteLine("Du är i nedredelen av korridoren, här finns inget att titta på.");
+			Console.WriteLine("Ska du fundera på livet eller fortsätta rundvandringen?\n");
+			Console.WriteLine("1 : Du passerade precis en toalett, nödig?");
 			Console.WriteLine("-----------------------------");
-			Console.WriteLine("2 : Gå till utställningen i rum 1?"); // move along
-			Console.WriteLine("3 : Gå till utställningen i rum 2?"); // move along
-			Console.WriteLine("4 : Gå till cafeét?"); // move along
-			Console.WriteLine("4 : Gå till nedre korridoren?"); // move along
+			Console.WriteLine("2 : Gå till utställningen i rum 1?"); 
+			Console.WriteLine("3 : Gå till utställningen i rum 2?"); 
+			Console.WriteLine("4 : Gå till cafeét?"); 
+			Console.WriteLine("5 : Gå till nedre korridoren?\n"); 
 			answer = Console.ReadKey(true).Key;
 
 
 			if (answer == ConsoleKey.D1 || answer == ConsoleKey.NumPad1)
 			{
+				ShowObject("Du orskade ett stopp i toaletten. Aktivera stealth-mode och smyg därifrån.");
 			}
 			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad2)
 			{
+				currentRoom = Room.Exhibit_North;
+				return;
 			}
 			else if (answer == ConsoleKey.D3 || answer == ConsoleKey.NumPad3)
 			{
+				currentRoom = Room.Exhibit_West;
+				return;
 			}
 			else if (answer == ConsoleKey.D4 || answer == ConsoleKey.NumPad4)
 			{
+				currentRoom = Room.Cafe;
+				return;
 			}
 			else if (answer == ConsoleKey.D5 || answer == ConsoleKey.NumPad5)
 			{
+				currentRoom = Room.Corridor_Lower;
+				return;
 			}
 		}
 	}
@@ -156,25 +167,33 @@
 		while (true)
 		{
 			Console.Clear();
-			Console.WriteLine("1 : Titta på pipor?"); // titta på verk
-			Console.WriteLine("2 : Titta på bilder på Himalaya?"); // titta på verk
+			Console.WriteLine("Du är i utställningsrum 2, vad vill du göra?\n");
+			Console.WriteLine("1 : Titta på pipor?"); 
+			Console.WriteLine("2 : Titta på bilder på Himalaya?"); 
 			Console.WriteLine("-----------------------------");
-			Console.WriteLine("3 : Gå tillbaka till korridoren?"); // move along
-			Console.WriteLine("4 : Hoppa ut genom det stängda fönstret?"); // move along
+			Console.WriteLine("3 : Gå tillbaka till korridoren?"); 
+			Console.WriteLine("4 : Hoppa ut genom det stängda fönstret?\n"); 
 			answer = Console.ReadKey(true).Key;
 
 
 			if (answer == ConsoleKey.D1 || answer == ConsoleKey.NumPad1)
 			{
+				ShowObject("Här kan du se pipor, inte PVC.");
 			}
 			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad2)
 			{
+				ShowObject("Här är ett berg, det är gjort av sten.");
 			}
 			else if (answer == ConsoleKey.D3 || answer == ConsoleKey.NumPad3)
 			{
+				currentRoom = Room.Corridor_Upper;
+				return;
 			}
 			else if (answer == ConsoleKey.D4 || answer == ConsoleKey.NumPad4)
 			{
+				ShowObject("Om du skurit dig på glaset så säljer vi plåster i giftshopen.");
+
+				Environment.Exit(0);
 			}
 		}
 	}
@@ -184,24 +203,27 @@
 		while (true)
 		{
 			Console.Clear();
-			Console.WriteLine("1 : Titta på saltvattenrenare?"); // titta på verk
+			Console.WriteLine("Du är i utställningsrum 1, vad vill du göra?\n");
+			Console.WriteLine("1 : Titta på saltvattenrenare?");
 			Console.WriteLine("-----------------------------");
-			Console.WriteLine("3 : Gå in på caféet?"); // move along
-			Console.WriteLine("4 : Gå ut till korridoren?"); // move along
+			Console.WriteLine("2 : Gå in på caféet?"); 
+			Console.WriteLine("3 : Gå ut till korridoren?\n");
 			answer = Console.ReadKey(true).Key;
 
 
 			if (answer == ConsoleKey.D1 || answer == ConsoleKey.NumPad1)
 			{
+				ShowObject("*stirrar* Det är mållöst vackert.");
 			}
 			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad2)
 			{
+				currentRoom = Room.Cafe;
+				return;
 			}
 			else if (answer == ConsoleKey.D3 || answer == ConsoleKey.NumPad3)
 			{
-			}
-			else if (answer == ConsoleKey.D4 || answer == ConsoleKey.NumPad4)
-			{
+				currentRoom = Room.Corridor_Upper;
+				return;
 			}
 		}
 	}
@@ -211,25 +233,33 @@
 		while (true)
 		{
 			Console.Clear();
-			Console.WriteLine("1 : Köp en kladdkaka?"); // titta på verk
+			Console.WriteLine("Du är i caféet, vad vill du göra?\n");
+			Console.WriteLine("1 : Köpa en kladdkaka?"); 
 			Console.WriteLine("-----------------------------");
-			Console.WriteLine("2 : Gå till giftshopen?"); // move along
-			Console.WriteLine("3 : Gå till utställningen i rum 1?"); // move along
-			Console.WriteLine("4 : Gå till korridoren?"); // move along
+			Console.WriteLine("2 : Gå till giftshopen?");
+			Console.WriteLine("3 : Gå till utställningen i rum 1?"); 
+			Console.WriteLine("4 : Gå till korridoren?\n"); 
 			answer = Console.ReadKey(true).Key;
 
 
 			if (answer == ConsoleKey.D1 || answer == ConsoleKey.NumPad1)
 			{
+				ShowObject("Tack för ditt köp. Den kommer skickas med postnord, förväntad mosad leverans om 2 månader.");
 			}
 			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad2)
 			{
+				currentRoom = Room.GiftShop;
+				return;
 			}
 			else if (answer == ConsoleKey.D3 || answer == ConsoleKey.NumPad3)
 			{
+				currentRoom = Room.Exhibit_North;
+				return;
 			}
 			else if (answer == ConsoleKey.D4 || answer == ConsoleKey.NumPad4)
 			{
+				currentRoom = Room.Corridor_Upper;
+				return;
 			}
 		}
 	}
@@ -239,26 +269,35 @@
 		while (true)
 		{
 			Console.Clear();
-			Console.WriteLine("1 : Köp ett husdjur?"); // titta på verk
-			Console.WriteLine("2 : Köpa något mer??"); // har vi ett annat förslag?
+			Console.WriteLine("Du är i giftshopen, vad vill du göra?\n");
+			Console.WriteLine("1 : Köpa ett husdjur?"); 
+			Console.WriteLine("2 : Köpa något mer?"); 
 			Console.WriteLine("-----------------------------");
-			Console.WriteLine("3 : Gå till caféet?"); // move along
+			Console.WriteLine("3 : Gå till caféet?\n");
 			answer = Console.ReadKey(true).Key;
 
 
 			if (answer == ConsoleKey.D1 || answer == ConsoleKey.NumPad1)
 			{
+				ShowObject("Tack för ditt köp, du kommer få en ovandrande pinne, vi borde verkligen ha satt lufthål i lådan.");
 			}
 			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad2)
 			{
+				ShowObject("Behöver du plåster?");
 			}
 			else if (answer == ConsoleKey.D3 || answer == ConsoleKey.NumPad3)
 			{
-			}
-			else if (answer == ConsoleKey.D4 || answer == ConsoleKey.NumPad4)
-			{
+				currentRoom = Room.Cafe;
+				return;
 			}
 		}
+	}
+
+	public static void ShowObject(string objectDescription)
+	{
+		Console.WriteLine(objectDescription);
+		Console.WriteLine("Tryck valfri tangent för att fortsätta.");
+		Console.ReadKey(true);
 	}
 
 }
