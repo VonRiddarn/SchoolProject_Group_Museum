@@ -72,7 +72,7 @@
 				currentRoom = Room.Corridor_Lower;
 				return;
 			}
-			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad1)
+			else if (answer == ConsoleKey.D2 || answer == ConsoleKey.NumPad2)
 			{
 				Console.WriteLine("Okej, du vet inte vad du missar.... n00b.");
 				Console.WriteLine("Tryck på valfri tangent för att fortsätta.");
